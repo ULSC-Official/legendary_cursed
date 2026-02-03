@@ -54,7 +54,7 @@
       color: #aab0ff;
     }
 
-    /* 👁 HOVER LORE — HIDDEN UNTIL HOVER */
+    /* 👁 HOVER LORE — EYE ONLY, HIDDEN BY DEFAULT */
     .card::after {
       content: "👁 CLASSIFIED COURT RECORD";
       position: absolute;
@@ -68,6 +68,7 @@
       opacity: 0;
       transition: opacity 0.25s ease;
       pointer-events: none;
+      letter-spacing: 0.3px;
     }
 
     .card:hover::after {
