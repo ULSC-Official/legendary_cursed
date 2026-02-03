@@ -1,0 +1,13 @@
+/* TEAM */
+Judge: You
+Role: Chaos Engineer
+Location: The DOM
+
+/* SITE */
+Purpose: Memorializing bad ideas that worked
+Standards: HTML, CSS, JS, questionable decisions
+Last Updated: 2026
+
+/* NOTE */
+normalize() was called.
+Nothing was fixed.
