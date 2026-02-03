@@ -3,8 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="google-site-verification" content="dBETfDZWKL-vspp7UKNOSVuXvBIYK00g0fZx8lJ43DI" />
   <title>DOM Family Court — Legendary (Corrupted)</title>
+
+  <!-- Google verification (safe to keep) -->
+  <meta name="google-site-verification" content="dBETfDZWKL-vspp7UKNOSVuXvBIYK00g0fZx8lJ43DI" />
+
   <style>
     :root {
       --bg: #0b0b0f;
@@ -12,102 +15,208 @@
       --accent: #7c7cff;
       --danger: #ff4d4d;
       --muted: #9aa0a6;
-      --ok: #2ecc71;
     }
+
     * { box-sizing: border-box; }
+
     body {
       margin: 0;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
-      background: radial-gradient(1200px 600px at 10% -10%, #1b1b2a, transparent 60%),
-                  radial-gradient(800px 400px at 90% 10%, #221b3a, transparent 55%),
-                  var(--bg);
+      background:
+        radial-gradient(1200px 600px at 10% -10%, #1b1b2a, transparent 60%),
+        radial-gradient(800px 400px at 90% 10%, #221b3a, transparent 55%),
+        var(--bg);
       color: #e6e8eb;
       line-height: 1.5;
     }
+
     header {
-      position: sticky; top: 0; z-index: 10;
+      position: sticky;
+      top: 0;
+      z-index: 10;
       backdrop-filter: blur(10px);
       background: linear-gradient(180deg, rgba(11,11,15,.85), rgba(11,11,15,.6));
       border-bottom: 1px solid #1f2030;
     }
-    .wrap { max-width: 1100px; margin: 0 auto; padding: 16px 20px; }
+
+    .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 16px 20px;
+    }
+
     .brand {
-      display: flex; align-items: center; gap: 12px;
-      font-weight: 800; letter-spacing: .4px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: .4px;
     }
+
     .badge {
-      padding: 4px 10px; border-radius: 999px;
-      background: #1c1d2b; color: var(--accent);
-      border: 1px solid #2b2d55; font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #1c1d2b;
+      color: var(--accent);
+      border: 1px solid #2b2d55;
+      font-size: 12px;
     }
-    nav { display: flex; gap: 14px; flex-wrap: wrap; }
-    nav a { color: #cfd3ff; text-decoration: none; font-size: 14px; opacity: .85; }
+
+    nav {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #cfd3ff;
+      text-decoration: none;
+      font-size: 14px;
+      opacity: .85;
+    }
+
     nav a:hover { opacity: 1; }
 
     .hero {
       padding: 80px 20px 40px;
     }
+
     .hero h1 {
       font-size: clamp(32px, 5vw, 64px);
       line-height: 1.05;
       margin: 0 0 16px;
       letter-spacing: -0.02em;
     }
+
     .glitch {
       position: relative;
       display: inline-block;
     }
-    .glitch::before, .glitch::after {
+
+    .glitch::before,
+    .glitch::after {
       content: attr(data-text);
-      position: absolute; left: 0; top: 0; opacity: .7;
+      position: absolute;
+      left: 0;
+      top: 0;
+      opacity: .7;
+      pointer-events: none;
     }
-    .glitch::before { color: var(--accent); transform: translate(2px, -1px); }
-    .glitch::after { color: var(--danger); transform: translate(-2px, 1px); }
+
+    .glitch::before {
+      color: var(--accent);
+      transform: translate(2px, -1px);
+    }
+
+    .glitch::after {
+      color: var(--danger);
+      transform: translate(-2px, 1px);
+    }
 
     .cta {
-      display: flex; gap: 12px; flex-wrap: wrap; margin-top: 20px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 20px;
     }
+
     button {
       background: linear-gradient(180deg, #2b2d55, #1f2145);
-      color: #fff; border: 1px solid #3a3d7a;
-      border-radius: 12px; padding: 12px 16px;
-      cursor: pointer; font-weight: 600;
+      color: #fff;
+      border: 1px solid #3a3d7a;
+      border-radius: 12px;
+      padding: 12px 16px;
+      cursor: pointer;
+      font-weight: 600;
       box-shadow: 0 10px 30px rgba(0,0,0,.25);
     }
-    button.alt { background: #17182a; border-color: #2b2d55; color: #d9dcff; }
-    button.warn { background: linear-gradient(180deg, #5a1f1f, #3b1414); border-color: #7a2a2a; }
+
+    button.alt {
+      background: #17182a;
+      border-color: #2b2d55;
+      color: #d9dcff;
+    }
+
+    button.warn {
+      background: linear-gradient(180deg, #5a1f1f, #3b1414);
+      border-color: #7a2a2a;
+    }
+
     button:hover { filter: brightness(1.08); }
 
     section { padding: 40px 20px; }
+
     .grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
     }
+
     .card {
       background: linear-gradient(180deg, #15162a, #111226);
-      border: 1px solid #23245a; border-radius: 16px; padding: 16px;
+      border: 1px solid #23245a;
+      border-radius: 16px;
+      padding: 16px;
+      position: relative;
+      overflow: hidden;
     }
+
+    /* 👻 Subtle hover lore */
+    .card::after {
+      content: "• classified court record";
+      position: absolute;
+      bottom: 10px;
+      right: 12px;
+      font-size: 11px;
+      opacity: 0;
+      color: var(--muted);
+      transition: opacity 0.3s ease;
+    }
+
+    .card:hover::after {
+      opacity: 0.7;
+    }
+
     .card h3 { margin: 0 0 6px; }
-    .muted { color: var(--muted); font-size: 14px; }
-    code, pre {
-      background: #0f1020; border: 1px solid #23245a; border-radius: 12px;
+
+    .muted {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    pre, code {
+      background: #0f1020;
+      border: 1px solid #23245a;
+      border-radius: 12px;
       color: #dfe3ff;
     }
-    pre { padding: 14px; overflow: auto; }
-    .pill { display: inline-block; padding: 4px 10px; border-radius: 999px; border: 1px solid #2b2d55; font-size: 12px; }
 
-    footer { border-top: 1px solid #1f2030; padding: 24px 20px; color: #b6bbff; }
+    pre {
+      padding: 14px;
+      overflow: auto;
+    }
 
-    /* Easter egg */
+    footer {
+      border-top: 1px solid #1f2030;
+      padding: 24px 20px;
+      color: #b6bbff;
+    }
+
     .court {
-      display: none; margin-top: 12px;
-      padding: 12px; border-radius: 12px;
-      background: #0f1020; border: 1px dashed #3a3d7a;
+      display: none;
+      margin-top: 12px;
+      padding: 12px;
+      border-radius: 12px;
+      background: #0f1020;
+      border: 1px dashed #3a3d7a;
       font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
       font-size: 13px;
     }
+
     .court.show { display: block; }
   </style>
 </head>
+
 <body>
   <header>
     <div class="wrap" style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
@@ -163,24 +272,10 @@
 
     <section id="api" class="wrap">
       <h2>Unofficial API</h2>
-      <pre><code>// Court-approved rituals
-parent.appendChild(child);
+      <pre><code>parent.appendChild(child);
 parent.replaceChild(newChild, oldChild);
 document.adoptNode(shadowChild);
-node.isSameNode(node) // true, emotionally
-
-// Legendary bug
-document.body.innerHTML = document.body.innerHTML;
-</code></pre>
-    </section>
-
-    <section id="evidence" class="wrap">
-      <h2>Evidence</h2>
-      <div class="grid">
-        <div class="card"><span class="pill">Exhibit A</span><p class="muted">Screenshots survive longer than links.</p></div>
-        <div class="card"><span class="pill">Exhibit B</span><p class="muted">Context was harmed in the making of this meme.</p></div>
-        <div class="card"><span class="pill">Exhibit C</span><p class="muted">Yes means yes (in all major browsers).</p></div>
-      </div>
+node.isSameNode(node) // true, emotionally</code></pre>
     </section>
 
     <section id="verdict" class="wrap">
@@ -200,16 +295,18 @@ document.body.innerHTML = document.body.innerHTML;
       const el = document.getElementById('court');
       el.classList.toggle('show');
       el.textContent = el.classList.contains('show')
-        ? 'COURT OPENED:\n- ancestor: confirmed\n- child = null: objected\n- normalize(): sustained\n- isSameNode(): emotionally yes'
+        ? 'COURT OPENED:\\n- ancestor: confirmed\\n- child = null: objected\\n- normalize(): sustained'
         : '';
     }
+
     function copyLink() {
-      navigator.clipboard.writeText(location.href).then(() => {
-        alert('Link copied!');
-      });
+      navigator.clipboard.writeText(location.href);
+      alert('Link copied!');
     }
+
     function corrupt() {
-      document.body.style.filter = 'hue-rotate(' + Math.floor(Math.random()*360) + 'deg)';
+      document.body.style.filter =
+        'hue-rotate(' + Math.floor(Math.random() * 360) + 'deg)';
     }
   </script>
 </body>
