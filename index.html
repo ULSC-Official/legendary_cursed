@@ -3,289 +3,97 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DOM Family Court — Legendary (Corrupted)</title>
 
-  <!-- Google verification (keep this) -->
+  <!-- ✅ GOOGLE SEARCH CONSOLE VERIFICATION -->
   <meta name="google-site-verification" content="dBETfDZWKL-vspp7UKNOSVuXvBIYK00g0fZx8lJ43DI" />
 
+  <title>Legendary Cursed</title>
+
   <style>
-    :root {
-      --bg: #0b0b0f;
-      --panel: #14141b;
-      --accent: #7c7cff;
-      --danger: #ff4d4d;
-      --muted: #9aa0a6;
-    }
-
-    * { box-sizing: border-box; }
-
     body {
       margin: 0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
-      background:
-        radial-gradient(1200px 600px at 10% -10%, #1b1b2a, transparent 60%),
-        radial-gradient(800px 400px at 90% 10%, #221b3a, transparent 55%),
-        var(--bg);
-      color: #e6e8eb;
-      line-height: 1.5;
+      padding: 40px;
+      background: #0b0f1a;
+      color: #e6e6e6;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
     }
 
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      backdrop-filter: blur(10px);
-      background: linear-gradient(
-        180deg,
-        rgba(11,11,15,.85),
-        rgba(11,11,15,.6)
-      );
-      border-bottom: 1px solid #1f2030;
-    }
-
-    .wrap {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 16px 20px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 800;
-    }
-
-    .badge {
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: #1c1d2b;
-      color: var(--accent);
-      border: 1px solid #2b2d55;
-      font-size: 12px;
-    }
-
-    nav {
-      display: flex;
-      gap: 14px;
-    }
-
-    nav a {
-      color: #cfd3ff;
-      text-decoration: none;
-      font-size: 14px;
-      opacity: .85;
-    }
-
-    nav a:hover {
-      opacity: 1;
-    }
-
-    .hero {
-      padding: 80px 20px 40px;
-    }
-
-    .hero h1 {
-      font-size: clamp(32px, 5vw, 64px);
-      line-height: 1.05;
-      margin-bottom: 16px;
-    }
-
-    .glitch {
-      position: relative;
-      display: inline-block;
-    }
-
-    .glitch::before,
-    .glitch::after {
-      content: attr(data-text);
-      position: absolute;
-      left: 0;
-      top: 0;
-      opacity: .7;
-    }
-
-    .glitch::before {
-      color: var(--accent);
-      transform: translate(2px, -1px);
-    }
-
-    .glitch::after {
-      color: var(--danger);
-      transform: translate(-2px, 1px);
-    }
-
-    .cta {
-      display: flex;
-      gap: 12px;
-      margin-top: 20px;
-    }
-
-    button {
-      background: linear-gradient(180deg, #2b2d55, #1f2145);
-      color: #fff;
-      border: 1px solid #3a3d7a;
-      border-radius: 12px;
-      padding: 12px 16px;
-      cursor: pointer;
-      font-weight: 600;
-    }
-
-    button.alt {
-      background: #17182a;
-      color: #d9dcff;
-    }
-
-    button.warn {
-      background: linear-gradient(180deg, #5a1f1f, #3b1414);
-      border-color: #7a2a2a;
-    }
-
-    section {
-      padding: 40px 20px;
+    h1 {
+      margin-bottom: 30px;
+      font-size: 2.2rem;
     }
 
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 16px;
+      gap: 20px;
     }
 
     .card {
       position: relative;
-      background: linear-gradient(180deg, #15162a, #111226);
-      border: 1px solid #23245a;
-      border-radius: 16px;
-      padding: 16px;
-      overflow: hidden;
+      background: linear-gradient(145deg, #12182b, #0d1222);
+      border-radius: 14px;
+      padding: 22px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.6);
+    }
+
+    .card h3 {
+      margin: 0 0 8px;
+      font-size: 1.1rem;
+      font-family: monospace;
     }
 
     .muted {
-      color: var(--muted);
-      font-size: 14px;
+      font-size: 0.9rem;
+      color: #aab0ff;
     }
 
-    /* 👁️ HOVER LORE — ONLY ON HOVER */
+    /* 👁 HOVER LORE — HIDDEN UNTIL HOVER */
     .card::after {
       content: "👁 CLASSIFIED COURT RECORD";
       position: absolute;
-      top: 10px;
-      left: 10px;
-      font-size: 14px;
-      opacity: 0;
+      top: 12px;
+      right: 12px;
+      font-size: 13px;
       color: #ff4d4d;
-      background: rgba(0,0,0,0.6);
+      background: rgba(0,0,0,0.65);
       padding: 6px 8px;
       border-radius: 6px;
-      transition: opacity 0.3s ease;
+      opacity: 0;
+      transition: opacity 0.25s ease;
       pointer-events: none;
     }
 
     .card:hover::after {
       opacity: 1;
     }
-
-    footer {
-      border-top: 1px solid #1f2030;
-      padding: 24px 20px;
-      color: #b6bbff;
-    }
-
-    .court {
-      display: none;
-      margin-top: 12px;
-      padding: 12px;
-      border-radius: 12px;
-      background: #0f1020;
-      border: 1px dashed #3a3d7a;
-      font-family: monospace;
-      font-size: 13px;
-    }
-
-    .court.show {
-      display: block;
-    }
   </style>
 </head>
 
 <body>
-  <header>
-    <div class="wrap" style="display:flex; justify-content:space-between;">
-      <div class="brand">
-        <span class="badge">LEGENDARY</span>
-        <span>DOM Family Court</span>
-        <span class="badge">corrupted</span>
-      </div>
-      <nav>
-        <a href="#lore">Lore</a>
-        <a href="#api">API</a>
-        <a href="#verdict">Verdict</a>
-      </nav>
+  <h1>Legendary Cursed</h1>
+
+  <div class="grid">
+    <div class="card">
+      <h3>attachShadow({ mode: 'open' })</h3>
+      <p class="muted">Secrets, but make it inspectable.</p>
     </div>
-  </header>
 
-  <main>
-    <section class="hero wrap">
-      <h1 class="glitch" data-text="document.body.innerHTML = document.body.innerHTML;">
-        document.body.innerHTML = document.body.innerHTML;
-      </h1>
-      <p class="muted">A memorial to DOM operations and legal chaos.</p>
-      <div class="cta">
-        <button onclick="toggleCourt()">Open Court</button>
-        <button class="alt" onclick="copyLink()">Copy Link</button>
-        <button class="warn" onclick="corrupt()">Normalize 😈</button>
-      </div>
-      <div id="court" class="court"></div>
-    </section>
-
-    <section id="lore" class="wrap">
-      <h2>Lore</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>removeChild()</h3>
-          <p class="muted">A clean break. Or so the comments said.</p>
-        </div>
-        <div class="card">
-          <h3>replaceChild()</h3>
-          <p class="muted">Same slot. New personality.</p>
-        </div>
-        <div class="card">
-          <h3>adoptNode()</h3>
-          <p class="muted">Found family, different document.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="verdict" class="wrap">
-      <h2>Verdict</h2>
-      <p class="muted">🗂️ Legendary (corrupted). Appeal denied.</p>
-    </section>
-  </main>
-
-  <footer>
-    <div class="wrap">
-      <small>© DOM Family Court. Don’t trust global variables.</small>
+    <div class="card">
+      <h3>eval()</h3>
+      <p class="muted">What could possibly go wrong.</p>
     </div>
-  </footer>
 
-  <script>
-    function toggleCourt() {
-      const el = document.getElementById('court');
-      el.classList.toggle('show');
-      el.textContent = el.classList.contains('show')
-        ? 'COURT OPENED:\n- ancestor: confirmed\n- normalize(): sustained\n- isSameNode(): emotionally yes'
-        : '';
-    }
-
-    function copyLink() {
-      navigator.clipboard.writeText(location.href);
-      alert('Link copied');
-    }
-
-    function corrupt() {
-      document.body.style.filter =
-        'hue-rotate(' + Math.floor(Math.random() * 360) + 'deg)';
-    }
-  </script>
+    <div class="card">
+      <h3>document.write()</h3>
+      <p class="muted">A clean break. Or so the comments said.</p>
+    </div>
+  </div>
 </body>
 </html>
